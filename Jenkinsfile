@@ -15,7 +15,7 @@ pipeline{
         }
         stage('Checkout from Git'){
             steps{
-                git branch: 'main', url: 'https://github.com/AWS-AZURE-Bootcamp5/Devsecops-Project1.git'
+                git branch: 'main', url: 'https://github.com/Chaitu210210/Devsecops-Project1.git'
             }
         }
         stage("Sonarqube Analysis "){
@@ -29,7 +29,7 @@ pipeline{
         stage("quality gate"){
            steps {
                 script {
-                    waitForQualityGate abortPipeline: false, credentialsId: 'Sonar-token' 
+                    waitForQualityGate abortPipeline: false, credentialsId: 'sonar' 
                 }
             } 
         }
